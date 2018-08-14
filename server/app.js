@@ -1,5 +1,6 @@
 const fs = require("fs");
 const express = require("express");
+const favicon = require("serve-favicon");
 const compression = require("compression");
 const { createRenderer, isProd, render, resolve, serve } = require("./utils");
 
@@ -12,6 +13,7 @@ const context = {
 };
 
 app.use(compression());
+app.use(favicon(resolve("./public/favicon.ico")));
 app.use("/dist", serve("../dist"));
 app.use("/public", serve("./public"));
 
