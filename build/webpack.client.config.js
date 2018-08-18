@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const merge = require("webpack-merge");
 const VueSSRClientPlugin = require("vue-server-renderer/client-plugin");
 const baseConfig = require("./webpack.base.config");
@@ -34,7 +35,16 @@ const config = merge(baseConfig, {
     },
   },
 
-  plugins: [new VueSSRClientPlugin()],
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env.VUE_ENV": '"client"',
+      "process.browser": true,
+      "process.client": true,
+      "process.server": false,
+    }),
+
+    new VueSSRClientPlugin(),
+  ],
 });
 
 module.exports = config;
