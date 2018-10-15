@@ -77,8 +77,7 @@ module.exports = {
         oneOf: isProd
           ? [
               {
-                test: /App/,
-                resourceQuery: /\?vue/,
+                test: resolve("src/App.vue"),
                 use: [
                   MiniCssExtractPlugin.loader,
                   "css-loader",
