@@ -1,13 +1,10 @@
+/* eslint-disable no-console */
+
 const http = require("http");
 const app = require("./app");
 
 const server = http.createServer(app);
 const port = 8080;
-
-server.listen(port);
-
-server.on("listening", onListening);
-server.on("error", onError);
 
 function onListening() {
   console.log(`Server started at http://localhost:${port}`);
@@ -27,3 +24,8 @@ function onError(error) {
       throw error;
   }
 }
+
+server.listen(port);
+
+server.on("listening", onListening);
+server.on("error", onError);

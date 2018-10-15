@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const path = require("path");
 const express = require("express");
 const { createBundleRenderer } = require("vue-server-renderer");
@@ -8,8 +10,8 @@ function resolve(file) {
   return path.resolve(__dirname, file);
 }
 
-function serve(path) {
-  return express.static(resolve(path));
+function serve(servePath) {
+  return express.static(resolve(servePath));
 }
 
 function createRenderer(serverBundle, options) {
@@ -17,6 +19,20 @@ function createRenderer(serverBundle, options) {
     runInNewContext: false,
     ...options,
   });
+}
+
+function handleRenderError(err, req, res) {
+  if (err.url) {
+    res.redirect(err.url);
+  } else if (err.code === 404) {
+    res.status(404).send("404 | Page Not Found");
+  } else {
+    // Render Error Page or Redirect
+    res.status(500).send("500 | Internal Server Error");
+
+    console.error(`error during render : ${req.url}`);
+    console.error(err.stack);
+  }
 }
 
 function render(renderer, ctx, req, res) {
@@ -40,20 +56,6 @@ function render(renderer, ctx, req, res) {
       console.log(`Whole request took: ${Date.now() - now}ms`);
     }
   });
-}
-
-function handleRenderError(err, req, res) {
-  if (err.url) {
-    res.redirect(err.url);
-  } else if (err.code === 404) {
-    res.status(404).send("404 | Page Not Found");
-  } else {
-    // Render Error Page or Redirect
-    res.status(500).send("500 | Internal Server Error");
-
-    console.error(`error during render : ${req.url}`);
-    console.error(err.stack);
-  }
 }
 
 module.exports = {

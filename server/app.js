@@ -1,3 +1,5 @@
+/* eslint-disable global-require, import/no-unresolved */
+
 const fs = require("fs");
 const express = require("express");
 const favicon = require("serve-favicon");
@@ -16,6 +18,9 @@ app.use(compression());
 app.use(favicon(resolve("./public/favicon.ico")));
 app.use("/dist", serve("../dist"));
 app.use("/public", serve("./public"));
+
+let renderer;
+let readyPromise;
 
 if (isProd) {
   const template = fs.readFileSync(templatePath, "utf-8");
@@ -36,9 +41,11 @@ if (isProd) {
 }
 
 function renderPage(req, res) {
-  isProd
-    ? render(renderer, context, req, res)
-    : readyPromise.then(() => render(renderer, context, req, res));
+  if (isProd) {
+    render(renderer, context, req, res);
+  } else {
+    readyPromise.then(() => render(renderer, context, req, res));
+  }
 }
 
 app.get("*", renderPage);
