@@ -20,4 +20,4 @@ You can run the following scripts with `yarn` or `npm` like `yarn install`
 
 - [Vue SSR Guide](https://ssr.vuejs.org/)
 - [vue-hackernews-2.0](https://github.com/vuejs/vue-hackernews-2.0)
-- [Vu Test Utils](https://vue-test-utils.vuejs.org/)
+- [Vue Test Utils](https://vue-test-utils.vuejs.org/)
