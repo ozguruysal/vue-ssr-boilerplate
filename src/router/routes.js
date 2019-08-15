@@ -17,6 +17,6 @@ export default [
     path: "/blank",
     name: "BlankPage",
     component: Blank,
-    meta: { layout: "BlankLayout" }
+    meta: { layout: "BlankLayout" },
   },
 ];

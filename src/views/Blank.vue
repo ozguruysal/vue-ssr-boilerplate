@@ -12,7 +12,7 @@
 <script>
 export default {
   name: "BlankPage",
-}
+};
 </script>
 
 <style lang="scss" scoped>

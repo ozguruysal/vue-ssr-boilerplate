@@ -22,8 +22,12 @@ export default {
       titleTemplate: "%s | Özgür Uysal",
 
       meta: [
-        { vmid: "description", name: "description", content: "Minimal starter package for Vue.js server side rendering."}
-      ]
+        {
+          vmid: "description",
+          name: "description",
+          content: "Minimal starter package for Vue.js server side rendering.",
+        },
+      ],
     };
   },
 
@@ -34,7 +38,7 @@ export default {
 
   computed: {
     layout() {
-      return `${this.$route.meta.layout || "DefaultLayout"}`;
+      return this.$route.meta.layout || "DefaultLayout";
     },
   },
 };
