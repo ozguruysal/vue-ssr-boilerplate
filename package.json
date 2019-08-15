@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "serve-favicon": "^2.5.0",
     "vue": "^2.6.10",
+    "vue-meta": "^2.2.1",
     "vue-router": "^3.0.6",
     "vue-server-renderer": "^2.6.10"
   },

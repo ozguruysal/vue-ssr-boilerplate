@@ -1,7 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
 
-import "./layouts";
 import createRouter from "./router";
 
 export default function createApp() {

@@ -1,11 +1,9 @@
 <template>
-  <app-layout>
-    <div class="home">
-      <img src="../assets/img/logo.png">
-      <HelloWorld msg="Welcome to Your Vue.js App"/>
-      <p>This app is server side rendered!</p>
-    </div>
-  </app-layout>
+  <div class="home">
+    <img src="../assets/img/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>This app is server side rendered!</p>
+  </div>
 </template>
 
 <script>
