@@ -64,6 +64,7 @@ module.exports = {
         loader: "url-loader",
         options: {
           limit: 4096,
+          esModule: false,
           fallback: {
             loader: "file-loader",
             options: {

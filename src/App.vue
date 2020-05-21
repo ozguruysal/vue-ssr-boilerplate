@@ -8,9 +8,9 @@
 
 <script>
 const DefaultLayout = () =>
-  import(/* webpackChunkName: "layout-default" */ "@/layouts/DefaultLayout");
+  import(/* webpackChunkName: "layout-default" */ "@/layouts/DefaultLayout.vue");
 const BlankLayout = () =>
-  import(/* webpackChunkName: "layout-blank" */ "@/layouts/BlankLayout");
+  import(/* webpackChunkName: "layout-blank" */ "@/layouts/BlankLayout.vue");
 
 export default {
   name: "App",
